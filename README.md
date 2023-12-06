@@ -80,9 +80,6 @@ Eventia is a powerful event management web application built with Next.js for th
 - Thoroughly test each API integration for seamless functionality.
 - Validate user authentication, data storage, and Google API interactions.
 
-### Deployment
-- Host the frontend and backend on suitable platforms.
-- Optimize performance and scalability for a growing user base.
 
 <p >
 <img width="400" src="https://github.com/MuhammedHashimT/she-fest-api/assets/122851090/c9327a88-7584-48b2-8b36-0a0886fad56b"  />
