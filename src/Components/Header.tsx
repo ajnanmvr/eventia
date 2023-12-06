@@ -196,9 +196,9 @@ export default function Header() {
                     transition={{ duration: 0.2 }}
                   >
                     <Link
-                      href={`/admin/dashboard`}
+                      href={`/admin`}
                       className={`${
-                        path === "/admin/dashboard" &&
+                        path === "/admin" &&
                         "fill-primary text-primary border-primary"
                       } ${
                         path !== "/admin/dashboard" && "border-black"

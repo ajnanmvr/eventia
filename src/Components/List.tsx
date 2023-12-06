@@ -1,7 +1,7 @@
 "use client"
 import React, { useEffect, useState } from "react";
 import Card from "./Card";
-import CardSkeleton from "./Skeleton/CardLoading";
+import CardSkeleton from "./Skeletons/CardLoading";
 
 interface CardData {
   _id: string;
