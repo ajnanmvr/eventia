@@ -2,7 +2,7 @@
     {
         "_id": "1",
         "slug": "card-1",
-        "thumbnail": "https://example.com/card1-thumbnail.jpg",
+        "thumbnail": "https://img.freepik.com/premium-photo/green-branch-plant-with-neon-orange-glow-against-dark-starry-sky-generative-ai_76964-10382.jpg",
         "name": "Card 1",
         "description": "This is the description for Card 1.",
         "discountPrice": 20.99,
@@ -15,7 +15,7 @@
     {
         "_id": "2",
         "slug": "card-2",
-        "thumbnail": "https://example.com/card2-thumbnail.jpg",
+        "thumbnail": "https://www.hdwallpapers.in/download/black_colorful_minimalist_artistic_shapes_4k_hd_abstract-1920x1080.jpg",
         "name": "Card 2",
         "description": "This is the description for Card 2.",
         "discountPrice": 15.49,

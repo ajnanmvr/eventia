@@ -36,9 +36,9 @@ export default function ProductDetail() {
   useEffect(() => {
     setProduct({
       thumbnail: "https://cdn.wallpapersafari.com/70/46/738DUZ.jpg",
-      name: "Dummy Product",
+      name: "Dummy Event",
       category: { name: "Test Category" },
-      description: "This is a dummy product for testing purposes.",
+      description: "This is a dummy Event for testing purposes.",
       specs: ["Spec1", "Spec2", "Spec3"],
       discountPrice: 19.99,
       price: 29.99,
@@ -75,9 +75,9 @@ export default function ProductDetail() {
 
       <div className="p-3 h-[500px] w-[500px]">
         <h2 className="font-bold text-3xl">{product.name}</h2>
-        <p className="inline-block mt-3 bg-primary rounded-xl px-3 py-1 text-sm font-semibold text-white">
-          {product.category.name}
-        </p>
+<p>        <span className="inline-block mt-3 bg-primary rounded-xl px-3 py-1 text-sm font-semibold text-white">
+          26 Nov 2023
+        </span> <span className="text-sm"> 3 Days </span> </p>
 
         <p className="text-slate-600 text-sm leading-4 mt-2">
           {product.description}
@@ -90,7 +90,7 @@ export default function ProductDetail() {
             #{spec}
           </span>
         ))}
-        <p className="mt-2 flex items-center gap-2">
+        {/* <p className="mt-2 flex items-center gap-2">
           {product.discountPrice < product.price ? (
             <>
               <span className="text-primary text-lg bg-white border-2 font-bold rounded-lg border-dotted py-2 px-3 border-primary">
@@ -105,7 +105,7 @@ export default function ProductDetail() {
               ₹{product.price}.00
             </span>
           )}
-        </p>
+        </p> */}
       </div>
     </div>
   );
