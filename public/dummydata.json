@@ -1,0 +1,28 @@
+[
+    {
+        "_id": "1",
+        "slug": "card-1",
+        "thumbnail": "https://example.com/card1-thumbnail.jpg",
+        "name": "Card 1",
+        "description": "This is the description for Card 1.",
+        "discountPrice": 20.99,
+        "price": 29.99,
+        "createdAt": "2023-01-01T12:00:00Z",
+        "category": {
+            "name": "Category 1"
+        }
+    },
+    {
+        "_id": "2",
+        "slug": "card-2",
+        "thumbnail": "https://example.com/card2-thumbnail.jpg",
+        "name": "Card 2",
+        "description": "This is the description for Card 2.",
+        "discountPrice": 15.49,
+        "price": 19.99,
+        "createdAt": "2023-02-15T10:30:00Z",
+        "category": {
+            "name": "Category 2"
+        }
+    }
+]
