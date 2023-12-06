@@ -112,8 +112,8 @@ function List({ fullData, category }: ListProps) {
             <option value="z-a">Z-A</option>
             <option value="newest">Latest</option>
             <option value="oldest">Oldest</option>
-            <option value="price-asc">Lowest Price</option>
-            <option value="price-desc">Highest Price</option>
+            <option value="price-asc">Offline Mode</option>
+            <option value="price-desc">Online Mode</option>
           </select>
         </div>
       </div>
