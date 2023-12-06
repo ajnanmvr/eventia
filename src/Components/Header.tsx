@@ -44,9 +44,9 @@ export default function Header() {
                 transition={{ duration: 0.2 }}
               >
                 <Link
-                  href={`/items`}
+                  href={`/popular`}
                   className={`${
-                    path === "/items" && "fill-primary text-primary"
+                    path === "/popular" && "fill-primary text-primary"
                   } flex cursor-pointer items-center hover:fill-primary hover:bg-smoke px-2 py-[5px] rounded-md hover:text-primary gap-1`}
                 >
                   <svg
@@ -71,9 +71,9 @@ export default function Header() {
                 transition={{ duration: 0.2 }}
               >
                 <Link
-                  href={`/items`}
+                  href={`/education`}
                   className={`${
-                    path === "/items" && "fill-primary text-primary"
+                    path === "/education" && "fill-primary text-primary"
                   } flex cursor-pointer items-center hover:fill-primary hover:bg-smoke px-2 py-[5px] rounded-md hover:text-primary gap-1`}
                 >
                   <svg
@@ -97,9 +97,9 @@ export default function Header() {
                 transition={{ duration: 0.2 }}
               >
                 <Link
-                  href={`/items`}
+                  href={`/society`}
                   className={`${
-                    path === "/items" && "fill-primary text-primary"
+                    path === "/society" && "fill-primary text-primary"
                   } flex cursor-pointer items-center hover:fill-primary hover:bg-smoke px-2 py-[5px] rounded-md hover:text-primary gap-1`}
                 >
                   <svg
@@ -123,9 +123,9 @@ export default function Header() {
                 transition={{ duration: 0.2 }}
               >
                 <Link
-                  href={`/items`}
+                  href={`/culture`}
                   className={`${
-                    path === "/items" && "fill-primary text-primary"
+                    path === "/culture" && "fill-primary text-primary"
                   } flex cursor-pointer items-center hover:fill-primary hover:bg-smoke px-2 py-[5px] rounded-md hover:text-primary gap-1`}
                 >
                   <svg
@@ -175,12 +175,12 @@ export default function Header() {
                 transition={{ duration: 0.2 }}
               >
                 <Link
-                  href={`/contact-us`}
+                  href={`/faqs`}
                   className={`${
-                    path === "/contact-us" && "fill-primary text-primary"
+                    path === "/faqs" && "fill-primary text-primary"
                   } flex cursor-pointer items-center px-2 py-[5px] hover:text-primary gap-1`}
                 >
-                  Contact Us
+                  FAQs
                 </Link>
               </motion.div>
             </li>
