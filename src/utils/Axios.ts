@@ -8,9 +8,9 @@ baseURL: "https://eventia-api.vercel.app/api",
     "Access-Control-Allow-Origin": "*",
     "Access-Control-Allow-Headers": "*",
     "Access-Control-Allow-Methods": "*",
-    Authorization:`${localStorage.getItem('token')}`
+    // Authorization:`${localStorage.getItem('token')}`
   },
-  withCredentials: true,
+  // withCredentials: true,
 
 });
 
