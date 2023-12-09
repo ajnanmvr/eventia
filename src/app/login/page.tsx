@@ -1,7 +1,9 @@
-export default function page(){
-    return (
-        <div>
-            <h1>login page</h1>
-        </div>
-    )
+import Login from "@/Components/Login";
+
+export default function page() {
+  return (
+    <div>
+      <Login />
+    </div>
+  );
 }
