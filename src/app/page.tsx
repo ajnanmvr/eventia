@@ -8,7 +8,7 @@ function Home() {
           <img src="/logos/logo4.png" alt="logo" className="h-[600px] p-10" />
           <div className="flex flex-col gap-1">
             <h1 className="font-black leading-[60px] text-[70px]">Eventia</h1>
-            <h1 className="font-regular text-2xl">Google Powered Local Event Explorer</h1>
+            <h1 className="font-regular text-2xl">Google Powered Event Explorer</h1>
             <div className="flex gap-4 items-center mt-4">
               <Link href={`/popular`}>
                 <button className="border-2 font-bold border-white py-2 px-5 rounded-full hover:bg-white hover:text-primary">
