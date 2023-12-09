@@ -1,8 +1,55 @@
+"use client"
+
+import Axios from "@/utils/Axios"
+import { setFips } from "crypto"
+import { useEffect, useState } from "react"
+
 export default function AddEvent(){
+
+  const categories = [
+    "Popular",
+    "Education",
+    "Society",
+    "Culture"
+  ]
+
+  const handleSubmit = (e : any)=>{
+    e.preventDefault()
+    setLoading(true)
+    console.log(name , description , date , image , log , lat , place , category)
+    Axios.post('/event' , {
+      name , description , date  , log , lat , place , category
+    }).then((res)=>{
+      console.log(res)
+      const id = res.data._id
+      setLoading(false)
+    }).catch((err)=>{
+      console.log(err)
+      setLoading(false)
+    })
+  }
+
+  const [name , setName ] = useState("")
+  const [description , setDescription ] = useState("")
+  const [date , setDate ] = useState("")
+  const [image , setImage ] = useState(null)
+  const [log , setLog ] = useState("")
+  const [lat , setLat ] = useState("")
+  const [place , setPlace] = useState("")
+  const [category , setCategory ] = useState("")
+  const [loading , setLoading] = useState(false)
+
+
+  const [user, setUser] = useState<any>();
+  useEffect(()=>{
+    const lUser = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : ''
+    setUser(lUser)
+  })
+
    return(
     <form
     className="flex justify-center gap-20 pt-10 pb-16"
-  //   onSubmit={handleSubmit}
+    onSubmit={handleSubmit}
   >
     <div className="p-3 h-[500px] w-[500px] font-semibold flex flex-col gap-2 overflow-y-auto no-scrollbar">
       <h1 className="text-5xl font-extrabold text-primary -mt-5">Add Product</h1>
@@ -11,8 +58,11 @@ export default function AddEvent(){
         <input
           type="text"
           name="name"
-          // value={name}
-          // onChange={handleInputChange}
+          value={name}
+          onChange={(e)=>{
+            setName(e.target.value)
+          
+          }}
           className="rounded-lg border-2 border-black px-3 py-[6px] w-full"
         />
       </label>
@@ -21,18 +71,12 @@ export default function AddEvent(){
         <input
           type="text"
           name="description"
-          // value={description}
-          // onChange={handleInputChange}
-          className="rounded-lg border-2 border-black px-3 py-[6px] w-full"
-        />
-      </label>
-      <label className="hidden">
-        Slug
-        <input
-          type="text"
-          name="slug"
-          // value={slug}
-          // onChange={handleInputChange}
+          value={description}
+          onChange={
+            (e)=>{
+              setDescription(e.target.value)
+            }
+          }
           className="rounded-lg border-2 border-black px-3 py-[6px] w-full"
         />
       </label>
@@ -41,82 +85,47 @@ export default function AddEvent(){
         <select
           className="rounded-lg border-2 border-black px-3 py-[6px] w-full"
           name="category"
-          // onChange={(e) => setCategory(e.target.value)}
+          onChange={(e) => setCategory(e.target.value)}
         >
-          {/* <option hidden>Select Category</option>
+          <option hidden>Select Category</option>
           {categories.map((item, key) => (
-            <option key={key} value={item._id}>
-              {item.name}
+            <option key={key} value={item}>
+              {item}
             </option>
-          ))} */}
+          ))}
           {/* Add more options as needed */}
         </select>
       </div>
       <div className="flex gap-10">
         <label className="flex-1">
-          Discount Price
+          Date
           <div className="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="1.3em"
-              viewBox="0 0 320 512"
-            >
-              <path d="M0 64C0 46.3 14.3 32 32 32H96h16H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H231.8c9.6 14.4 16.7 30.6 20.7 48H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H252.4c-13.2 58.3-61.9 103.2-122.2 110.9L274.6 422c14.4 10.3 17.7 30.3 7.4 44.6s-30.3 17.7-44.6 7.4L13.4 314C2.1 306-2.7 291.5 1.5 278.2S18.1 256 32 256h80c32.8 0 61-19.7 73.3-48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H185.3C173 115.7 144.8 96 112 96H96 32C14.3 96 0 81.7 0 64z" />
-            </svg>
+            
             <input
-              type="number"
+              type="date"
               name="discountPrice"
-              // value={discountPrice}
-              // onChange={handleInputChange}
+              value={date}
+              onChange={(e)=>{
+                setDate(e.target.value)
+              }}
               className="rounded-lg border-2 border-black px-3 py-[6px] w-full"
             />
           </div>
         </label>
         <label className="flex-1">
-          Maximum Retail Price
+          Place
           <div className="flex items-center gap-2">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              height="1.3em"
-              viewBox="0 0 320 512"
-            >
-              <path d="M0 64C0 46.3 14.3 32 32 32H96h16H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H231.8c9.6 14.4 16.7 30.6 20.7 48H288c17.7 0 32 14.3 32 32s-14.3 32-32 32H252.4c-13.2 58.3-61.9 103.2-122.2 110.9L274.6 422c14.4 10.3 17.7 30.3 7.4 44.6s-30.3 17.7-44.6 7.4L13.4 314C2.1 306-2.7 291.5 1.5 278.2S18.1 256 32 256h80c32.8 0 61-19.7 73.3-48H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H185.3C173 115.7 144.8 96 112 96H96 32C14.3 96 0 81.7 0 64z" />
-            </svg>
             <input
-              type="number"
+              type="text"
               name="price"
-              // value={price}
-              // onChange={handleInputChange}
+              value={place}
+              onChange={(e)=>{
+                setPlace(e.target.value)
+              }}
               className="rounded-lg border-2 border-black px-3 py-[6px] w-full"
             />
           </div>
         </label>
-      </div>
-      <div className="">
-        <label className="block">Tags</label>
-        {/* {specs.map((spec, index) => (
-          <input
-            key={index}
-            type="text"
-            value={spec}
-            onChange={(e) => handleSpecsChange(e, index)}
-            className="rounded-lg border-2 border-black w-[49%] px-3 py-[6px] mr-1 mb-1"
-          />
-        ))} */}
-        <button
-          type="button"
-          className="flex gap-1 items-center rounded-lg border-2 border-black px-3 py-[6px] mr-1 mb-1"
-          // onClick={addSpec}
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            height="1em"
-            viewBox="0 0 448 512"
-          >
-            <path d="M256 80c0-17.7-14.3-32-32-32s-32 14.3-32 32V224H48c-17.7 0-32 14.3-32 32s14.3 32 32 32H192V432c0 17.7 14.3 32 32 32s32-14.3 32-32V288H400c17.7 0 32-14.3 32-32s-14.3-32-32-32H256V80z" />
-          </svg>
-          Add Tag
-        </button>
       </div>
       <div className="flex">
 
@@ -124,11 +133,11 @@ export default function AddEvent(){
             type="file"
             name="thumbnail"
           className="flex gap-1 items-center rounded-lg border-2 border-black px-3 py-[6px] mr-1 mb-1 flex-1 file:bg-white file:rounded-lg file:text-primary file:border-nprimary  file:px-2 file:py-1 file:mr-2"
-          
-            
-          //   onChange={handleFileInputChange}
+          onChange={(e)=>{
+            setImage(e.target.files[0])  
+          }}
           />
-        {/* {loading ? (
+        {loading ? (
           <div 
           className="rounded-lg border-2 border-primary bg-primary text-white px-6 py-[6px] mr-1 mb-1"
 
@@ -139,7 +148,7 @@ export default function AddEvent(){
           className="rounded-lg border-2 border-primary bg-primary text-white px-6 py-[6px] mr-1 mb-1"
           
           >Submit</button>
-        )} */}
+        )}
       </div>
       {/* {successMessage && <p className="">{successMessage}</p>}
       {errorMessage && <p className="">{errorMessage}</p>} */}

@@ -1,16 +1,25 @@
 "use client";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import Modal from "./Modal";
+import Login from "./Login";
+import { useRouter } from "next/navigation";
 
 export default function Header() {
   //temporary user role
-  const [user, setUser] = useState({ role: "admin" });
   const [isOpen , setIsOpen ] = useState(false)
-
+  const router = useRouter()
+  
   const path = usePathname();
+  
+  const [user, setUser] = useState<any>();
+  useEffect(()=>{
+    const lUser = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : ''
+    setUser(lUser)
+  })
+
   return (
     <><header
     className={`flex z-50 ${
@@ -187,7 +196,7 @@ export default function Header() {
             </motion.div>
           </li>
 
-          {user?.role === "admin" ? (
+          {user?.email  ? (
             <>
               <li>
                 <motion.div
@@ -198,7 +207,12 @@ export default function Header() {
                   transition={{ duration: 0.2 }}
                 >
                   <Link
-                    href={`/admin`}
+                   // onClick={
+                  //   ()=>{
+                  //     router.push('/admin')
+                  //   }
+                  // }
+                  href={'/admin'}
                     className={`${
                       path === "/admin" &&
                       "fill-primary text-primary border-primary"
@@ -214,7 +228,7 @@ export default function Header() {
                     >
                       <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
                     </svg>
-                    <span className="font-semibold">Login</span>
+                    <span className="font-semibold">{user.name}</span>
                   </Link>
                 </motion.div>
               </li>
@@ -252,7 +266,7 @@ export default function Header() {
                 whileTap={{ scale: 0.95 }}
                 transition={{ duration: 0.2 }}
               >
-                <Link
+                {/* <Link
                   href={`/login`}
                   className={`${
                     path === "/login" &&
@@ -267,7 +281,8 @@ export default function Header() {
                   >
                     <path d="M224 256A128 128 0 1 0 224 0a128 128 0 1 0 0 256zm-45.7 48C79.8 304 0 383.8 0 482.3C0 498.7 13.3 512 29.7 512H418.3c16.4 0 29.7-13.3 29.7-29.7C448 383.8 368.2 304 269.7 304H178.3z" />
                   </svg>
-                </Link>
+                </Link> */}
+                <Login/>
               </motion.div>
             </li>
           )}

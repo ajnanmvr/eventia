@@ -8,6 +8,7 @@ export default function Login() {
       <GoogleLogin
         onSuccess={(response: any) => {
           console.log(jwtDecode(response.credential));
+          localStorage.setItem('user',JSON.stringify(jwtDecode(response.credential)))
         }}
         onError={() => {
           console.log("error");
