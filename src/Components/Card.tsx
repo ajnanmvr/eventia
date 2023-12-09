@@ -23,16 +23,16 @@ const Card: React.FC<CardProps> = ({ card }) => {
       <Link href={`/event/${card.slug}`}>
         <div className="h-80 w-56 rounded-lg border overflow-hidden flex flex-col justify-between">
           <img
-            src={card.thumbnail}
+            src="https://cdn.wallpapersafari.com/70/46/738DUZ.jpg"
             alt="Thumbnail"
             className="w-full h-40 object-cover rounded-t-md"
           />
 
           <div className="p-3">
             <h2 className="font-bold text-xl">{card.name}</h2>
-            <p className="text-slate-600 text-sm leading-4 mt-1">
+            {/* <p className="text-slate-600 text-sm leading-4 mt-1">
               {card.description}
-            </p>
+            </p> */}
 
             <p className="mt-2 flex items-center gap-2">
 

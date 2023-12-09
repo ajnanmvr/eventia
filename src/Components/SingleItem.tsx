@@ -36,7 +36,7 @@ export default function ProductDetail() {
   useEffect(() => {
     setProduct({
       thumbnail: "https://cdn.wallpapersafari.com/70/46/738DUZ.jpg",
-      name: "Dummy Event",
+      name: "Event 1",
       category: { name: "Test Category" },
       description: "This is a dummy Event for testing purposes.",
       specs: ["Spec1", "Spec2", "Spec3"],

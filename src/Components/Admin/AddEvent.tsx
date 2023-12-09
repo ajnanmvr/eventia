@@ -77,7 +77,7 @@ export default function AddEvent(){
   useEffect(()=>{
     const lUser = localStorage.getItem('user') ? JSON.parse(localStorage.getItem('user')) : ''
     setUser(lUser)
-  })
+  },[ ])
 
    return(
     <form
