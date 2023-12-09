@@ -3,27 +3,17 @@ import React, { useEffect, useState } from "react";
 import Card from "./Card";
 import CardSkeleton from "./Skeletons/CardLoading";
 
-interface CardData {
-  _id: string;
-  slug: string;
-  thumbnail: string;
-  name: string;
-  description: string;
-  discountPrice: number;
-  price: number;
-  createdAt: string;
-  category: { name: string };
-}
+
 
 
 interface ListProps {
-  fullData: CardData[];
+  fullData: any[];
   category: string;
 }
 
 function List({ fullData, category }: ListProps) {
-  const [cards, setCards] = useState<CardData[]>([]);
-  const [sortedCards, setSortedCards] = useState<CardData[]>([]);
+  const [cards, setCards] = useState<any[]>([]);
+  const [sortedCards, setSortedCards] = useState<any[]>([]);
   const [sortOption, setSortOption] = useState<string>("newest");
   const [filterText, setFilterText] = useState<string>("");
 
