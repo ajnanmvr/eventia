@@ -31,7 +31,7 @@ const Dashboard = () => {
           </Link>
           <div className="mt-4 flex justify-center gap-2">
             <Link
-              href={"/admin/add"}
+              href={"/admin/events/add"}
               className="px-4 py-2 text-sm font-medium text-center text-white bg-primary flex items-center gap-1 fill-white rounded-lg hover:bg-indigo-600"
             >
               <svg

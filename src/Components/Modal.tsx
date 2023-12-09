@@ -35,7 +35,7 @@ const Modal = (props: Props) => {
         </div>
         <div className="flex flex-wrap gap-1 w-full items-center justify-center">
           <div className="px-2 py-1 w-full text-lg fill-transparent hover:fill-primary bg-smoke font-semibold hover:bg-smoker flex items-center justify-between hover:border-primary border hover:text-primary rounded-md">
-            magin
+            Calicut
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="16"
@@ -47,7 +47,7 @@ const Modal = (props: Props) => {
             </svg>
           </div>
           <div className="px-2 py-1 w-full text-lg fill-transparent hover:fill-primary bg-smoke font-semibold hover:bg-smoker flex items-center justify-between hover:border-primary border hover:text-primary rounded-md">
-            magin
+            Cochin
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="16"
@@ -59,7 +59,7 @@ const Modal = (props: Props) => {
             </svg>
           </div>
           <div className="px-2 py-1 w-full text-lg fill-transparent hover:fill-primary bg-smoke font-semibold hover:bg-smoker flex items-center justify-between hover:border-primary border hover:text-primary rounded-md">
-            magin
+            Chennai
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="16"
@@ -71,7 +71,7 @@ const Modal = (props: Props) => {
             </svg>
           </div>
           <div className="px-2 py-1 w-full text-lg fill-transparent hover:fill-primary bg-smoke font-semibold hover:bg-smoker flex items-center justify-between hover:border-primary border hover:text-primary rounded-md">
-            magin
+            New Delhi
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="16"
@@ -83,7 +83,7 @@ const Modal = (props: Props) => {
             </svg>
           </div>
           <div className="px-2 py-1 w-full text-lg fill-transparent hover:fill-primary bg-smoke font-semibold hover:bg-smoker flex items-center justify-between hover:border-primary border hover:text-primary rounded-md">
-            magin
+            Mumbai
             <svg
               xmlns="http://www.w3.org/2000/svg"
               height="16"

@@ -12,10 +12,42 @@ export default function AddEvent(){
     "Society",
     "Culture"
   ]
+  const [selectedPlace, setSelectedPlace] = useState(null);
+
+  const handlePlaceSelect = async (query: any) => {
+    try {
+      const response = await fetch(
+        `https://nominatim.openstreetmap.org/search?format=json&q=${query}`
+      );
+      const data = await response.json();
+      if (data && data.length > 0) {
+        const { lat, lon } = data[0]; // Get latitude and longitude of the first result
+        setLog(lon)
+        setLat(lat)
+        setPlace(query)
+        setSelectedPlace({ lat, lon } as any);
+      }
+    } catch (error) {
+      console.error("Error fetching place:", error);
+    }
+  };
 
   const handleSubmit = (e : any)=>{
     e.preventDefault()
     setLoading(true)
+
+    const formData = new FormData()
+
+    formData.append('name' , name)
+    formData.append('description' , description)
+    formData.append('date' , date)
+    formData.append('files' , image as any)
+    formData.append('log' , log)
+    formData.append('lat' , lat)
+    formData.append('place' , place)
+    formData.append('category' , category)
+
+
     console.log(name , description , date , image , log , lat , place , category)
     Axios.post('/event' , {
       name , description , date  , log , lat , place , category
@@ -53,7 +85,7 @@ export default function AddEvent(){
     onSubmit={handleSubmit}
   >
     <div className="p-3 h-[500px] w-[500px] font-semibold flex flex-col gap-2 overflow-y-auto no-scrollbar">
-      <h1 className="text-5xl font-extrabold text-primary -mt-5">Add Product</h1>
+      <h1 className="text-5xl font-extrabold text-primary -mt-5">Add Event</h1>
      <label>
         Name
         <input
@@ -116,17 +148,50 @@ export default function AddEvent(){
         <label className="flex-1">
           Place
           <div className="flex items-center gap-2">
+            
+             <input
+        type="text"
+        placeholder="Search for a place..."
+        onChange={(e) => handlePlaceSelect(e.target.value)}
+        className="rounded-lg border-2 border-black px-3 py-[6px] w-full"
+      />
+      
+          </div>
+        </label>
+      
+      </div>
+      <div>
+     
+      {(selectedPlace && place) && (
+         <div className="flex gap-10">
+        <label className="flex-1">
+          Latitude
+          <div className="flex items-center gap-2">
+            
             <input
               type="text"
-              name="price"
-              value={place}
-              onChange={(e)=>{
-                setPlace(e.target.value)
-              }}
+              name="discountPrice"
+              value={log}
               className="rounded-lg border-2 border-black px-3 py-[6px] w-full"
             />
           </div>
         </label>
+        <label className="flex-1">
+          Longitude
+          <div className="flex items-center gap-2">
+            
+             <input
+             disabled
+             value={lat}
+        type="text"
+        className="rounded-lg border-2 border-black px-3 py-[6px] w-full"
+      />
+      
+          </div>
+        </label>
+      
+      </div>
+      )}
       </div>
       <div className="flex">
 
@@ -135,8 +200,9 @@ export default function AddEvent(){
             name="thumbnail"
           className="flex gap-1 items-center rounded-lg border-2 border-black px-3 py-[6px] mr-1 mb-1 flex-1 file:bg-white file:rounded-lg file:text-primary file:border-nprimary  file:px-2 file:py-1 file:mr-2"
           onChange={(e)=>{
-            setImage(e.target.files[0])  
-            setThumbnailPreview(URL.createObjectURL(e.target.files[0]))
+            e.target.files && e.target.files.length > 0 &&
+              setImage(e.target.files[0]) 
+              setThumbnailPreview(URL.createObjectURL(e.target.files && e.target.files[0]  ))
           }}
           />
         {loading ? (
@@ -167,7 +233,7 @@ export default function AddEvent(){
         <label htmlFor="thumbnail">
 
         <img
-          src="/addbg.jpg"
+          src="/addbg.jpeg"
           alt="Thumbnail Preview"
           className="h-full w-full object-cover rounded-lg"
         /></label>
