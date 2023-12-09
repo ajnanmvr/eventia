@@ -38,6 +38,7 @@ export default function AddEvent(){
   const [place , setPlace] = useState("")
   const [category , setCategory ] = useState("")
   const [loading , setLoading] = useState(false)
+  const [thumbnailPreview, setThumbnailPreview] = useState<any>();
 
 
   const [user, setUser] = useState<any>();
@@ -135,6 +136,7 @@ export default function AddEvent(){
           className="flex gap-1 items-center rounded-lg border-2 border-black px-3 py-[6px] mr-1 mb-1 flex-1 file:bg-white file:rounded-lg file:text-primary file:border-nprimary  file:px-2 file:py-1 file:mr-2"
           onChange={(e)=>{
             setImage(e.target.files[0])  
+            setThumbnailPreview(URL.createObjectURL(e.target.files[0]))
           }}
           />
         {loading ? (
@@ -154,7 +156,7 @@ export default function AddEvent(){
       {errorMessage && <p className="">{errorMessage}</p>} */}
     </div>
     <div className="h-[500px] w-[500px]">
-      {/* {thumbnailPreview ? (
+      {thumbnailPreview ? (
         <label htmlFor="thumbnail">
         <img
           src={thumbnailPreview}
@@ -169,7 +171,7 @@ export default function AddEvent(){
           alt="Thumbnail Preview"
           className="h-full w-full object-cover rounded-lg"
         /></label>
-      )} */}
+      )}
 
     </div>
 
