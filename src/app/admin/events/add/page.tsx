@@ -1,9 +1,8 @@
-import React from 'react'
+import AddEvent from "@/Components/Admin/AddEvent";
+import React from "react";
 
 function page() {
-  return (
-    <div>page</div>
-  )
+  return <AddEvent />;
 }
 
-export default page
+export default page;
