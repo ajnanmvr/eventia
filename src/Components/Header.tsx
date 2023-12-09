@@ -175,9 +175,9 @@ export default function Header() {
                 transition={{ duration: 0.2 }}
               >
                 <Link
-                  href={`/faqs`}
+                  href={`/faq`}
                   className={`${
-                    path === "/faqs" && "fill-primary text-primary"
+                    path === "/faq" && "fill-primary text-primary"
                   } flex cursor-pointer items-center px-2 py-[5px] hover:text-primary gap-1`}
                 >
                   FAQs
@@ -227,11 +227,12 @@ export default function Header() {
                   >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
-                      height="1em"
-                      viewBox="0 0 512 512"
+                      height="18"
+                      width="18"
                       className="hover:fill-red-600 cursor-pointer ml-2"
+                      viewBox="0 0 512 512"
                     >
-                      <path d="M288 32c0-17.7-14.3-32-32-32s-32 14.3-32 32V256c0 17.7 14.3 32 32 32s32-14.3 32-32V32zM143.5 120.6c13.6-11.3 15.4-31.5 4.1-45.1s-31.5-15.4-45.1-4.1C49.7 115.4 16 181.8 16 256c0 132.5 107.5 240 240 240s240-107.5 240-240c0-74.2-33.8-140.6-86.6-184.6c-13.6-11.3-33.8-9.4-45.1 4.1s-9.4 33.8 4.1 45.1c38.9 32.3 63.5 81 63.5 135.4c0 97.2-78.8 176-176 176s-176-78.8-176-176c0-54.4 24.7-103.1 63.5-135.4z" />
+                      <path d="M256 0c17.7 0 32 14.3 32 32V66.7C368.4 80.1 431.9 143.6 445.3 224H480c17.7 0 32 14.3 32 32s-14.3 32-32 32H445.3C431.9 368.4 368.4 431.9 288 445.3V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V445.3C143.6 431.9 80.1 368.4 66.7 288H32c-17.7 0-32-14.3-32-32s14.3-32 32-32H66.7C80.1 143.6 143.6 80.1 224 66.7V32c0-17.7 14.3-32 32-32zM128 256a128 128 0 1 0 256 0 128 128 0 1 0 -256 0zm128-80a80 80 0 1 1 0 160 80 80 0 1 1 0-160z" />
                     </svg>
                   </motion.div>
                 </li>
