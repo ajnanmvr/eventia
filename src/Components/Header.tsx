@@ -14,15 +14,15 @@ export default function Header() {
   
   const path = usePathname();
   
-  const [user, setUser] = useState<string | null>(null);
+    const [user, setUser] = useState<string | null>(null);
 
-  useEffect(() => {
-    const lUserString = localStorage.getItem('user');
-    const lUser = lUserString ? JSON.parse(lUserString) : null;
-    console.log(lUser);
-  
-    setUser(lUser);
-  }, []);
+    useEffect(() => {
+      const lUserString = localStorage.getItem('user');
+      const lUser = lUserString ? JSON.parse(lUserString) : null;
+      console.log(lUser);
+    
+      setUser(lUser);
+    }, []);
   
 
   return (

@@ -14,6 +14,15 @@ export default function AddEvent(){
   ]
   const [selectedPlace, setSelectedPlace] = useState(null);
 
+
+  useEffect(() => {
+    const lUserString = localStorage.getItem('user');
+    const lUser = lUserString ? JSON.parse(lUserString) : null;
+    console.log(lUser);
+  
+    setUser(lUser);
+  }, []);
+
   const handlePlaceSelect = async (query: any) => {
     try {
       const response = await fetch(
@@ -46,6 +55,7 @@ export default function AddEvent(){
     formData.append('lat' , lat)
     formData.append('place' , place)
     formData.append('category' , category)
+    formData.append('ownerId' , user._id)
 
 
     console.log(name , description , date , image , log , lat , place , category)
